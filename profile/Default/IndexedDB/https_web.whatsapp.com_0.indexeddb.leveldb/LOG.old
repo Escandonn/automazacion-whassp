@@ -1,0 +1,21 @@
+2026/04/12-08:59:47.670 6168 Reusing MANIFEST D:\Versiones-worship\automatizacion-whasspt\profile\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/04/12-08:59:47.670 6168 Recovering log #3
+2026/04/12-08:59:47.671 6168 Reusing old log D:\Versiones-worship\automatizacion-whasspt\profile\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000003.log 
+2026/04/12-08:59:47.727 6168 Level-0 table #5: started
+2026/04/12-08:59:47.786 6168 Level-0 table #5: 7691 bytes OK
+2026/04/12-08:59:47.869 6168 Delete type=0 #3
+2026/04/12-08:59:47.869 6168 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/04/12-08:59:50.294 764 Level-0 table #7: started
+2026/04/12-08:59:50.378 764 Level-0 table #7: 31522 bytes OK
+2026/04/12-08:59:50.505 764 Delete type=0 #4
+2026/04/12-08:59:50.506 764 Manual compaction at level-0 from '\x00\x0c\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0d\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/04/12-08:59:50.629 3cfc Level-0 table #9: started
+2026/04/12-08:59:50.977 3cfc Level-0 table #9: 682 bytes OK
+2026/04/12-08:59:51.108 3cfc Delete type=0 #6
+2026/04/12-08:59:51.109 4c0c Manual compaction at level-0 from '\x00\x0d\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0e\x00\x00\x00' @ 0 : 0; will stop at '\x00\x10\x00\x00\x05' @ 2248 : 1
+2026/04/12-08:59:51.109 4c0c Compacting 1@0 + 1@1 files
+2026/04/12-08:59:51.169 4c0c Generated table #10@0: 415 keys, 3806 bytes
+2026/04/12-08:59:51.169 4c0c Compacted 1@0 + 1@1 files => 3806 bytes
+2026/04/12-08:59:51.252 4c0c compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/04/12-08:59:51.253 4c0c Delete type=2 #9
+2026/04/12-08:59:51.254 4c0c Manual compaction at level-0 from '\x00\x10\x00\x00\x05' @ 2248 : 1 .. '\x00\x0e\x00\x00\x00' @ 0 : 0; will stop at (end)
