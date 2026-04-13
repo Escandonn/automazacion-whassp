@@ -38,8 +38,13 @@ bot_whatsapp/
 │
 ├── vistas/
 │   ├── interfaz_principal.py
+│   ├── panel_control_superior.py
+│   ├── panel_estado_sesion.py
 │   ├── panel_chats_pendientes.py
-│   └── editor_respuesta.py
+│   ├── panel_configuracion_respuesta.py
+│   ├── panel_ejecucion.py
+│   ├── panel_automatizacion_avanzada.py
+│   └── panel_logs.py
 │
 ├── utilidades/
 │   ├── logger.py
@@ -222,6 +227,23 @@ Control de autenticación.
 ```text id="e7tw17"
 - Loop principal
 - Orquestación general
+```
+
+---
+
+## Vistas de la Interfaz (GUI)
+
+Implementan la interfaz de "Centro de Control Profesional" definida en el diseño de UI.
+
+```text
+- InterfazPrincipal: Ventana contenedora (MainWindow) y orquestación visual.
+- PanelControlSuperior: Botones de Iniciar, Detener, Refrescar y Configuración.
+- PanelEstadoSesion: Indicadores de Brave, WhatsApp, estado de login y tiempos.
+- PanelChatsPendientes: Tabla de datos en tiempo real de los chats por procesar.
+- PanelConfiguracionRespuesta: Opciones de IA, plantillas y redacción manual.
+- PanelEjecucion: Botones de envío, difusión y reintentos.
+- PanelAutomatizacionAvanzada: Toggles para IA en piloto automático y settings anti-ban.
+- PanelLogs: Trazabilidad y tabla de auditoría del bot.
 ```
 
 ---
