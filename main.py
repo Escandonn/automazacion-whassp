@@ -1,66 +1,54 @@
 from seleniumbase import SB
+from pathlib import Path
+import threading
 
+
+# ==============================
+# CONFIGURACIÓN
+# ==============================
 BRAVE_PATH = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
-REAL_PROFILE = r"C:\Users\alejo\AppData\Local\BraveSoftware\Brave-Browser\User Data"
 
-UNREAD_SELECTOR = 'span[aria-label*="no leídos"]'
+BASE_DIR = Path(__file__).parent
 
-
-def obtener_nombre_chat(chat):
-    try:
-        return chat.find_element(
-            "css selector",
-            'span[title]'
-        ).get_attribute("title")
-    except:
-        return "Nombre no encontrado"
+BOT1_PROFILE = BASE_DIR / "sb-personas" / "Profile 1"
+BOT2_PROFILE = BASE_DIR / "sb-personas" / "Profile 2"
 
 
-def tiene_mensajes_nuevos(chat):
-    return bool(
-        chat.find_elements(
-            "css selector",
-            UNREAD_SELECTOR
-        )
-    )
+# ==============================
+# BOT 1
+# ==============================
+def abrir_bot_1():
+    with SB(
+        browser="chrome",
+        binary_location=BRAVE_PATH,
+        chromium_arg=f"--user-data-dir={BOT1_PROFILE}"
+    ) as sb:
+        sb.open("https://web.whatsapp.com")
+        sb.sleep(9999)
 
 
-with SB(
-    browser="chrome",
-    binary_location=BRAVE_PATH,
-    user_data_dir=REAL_PROFILE,
-    maximize=True
-) as sb:
+# ==============================
+# BOT 2
+# ==============================
+def abrir_bot_2():
+    with SB(
+        browser="chrome",
+        binary_location=BRAVE_PATH,
+        chromium_arg=f"--user-data-dir={BOT2_PROFILE}"
+    ) as sb:
+        sb.open("https://web.whatsapp.com")
+        sb.sleep(9999)
 
-    sb.open("https://web.whatsapp.com/")
-    sb.wait_for_element('div[role="grid"]', timeout=60)
 
-    while True:
+# ==============================
+# MAIN
+# ==============================
+if __name__ == "__main__":
+    t1 = threading.Thread(target=abrir_bot_1)
+    t2 = threading.Thread(target=abrir_bot_2)
 
-        chats = sb.find_elements('div[role="row"]')
+    t1.start()
+    t2.start()
 
-        print("\n" + "=" * 60)
-        print(f"CHATS VISIBLES DETECTADOS: {len(chats)}")
-        print("=" * 60)
-
-        chats_con_unread = []
-
-        for i, chat in enumerate(chats, start=1):
-
-            nombre = obtener_nombre_chat(chat)
-
-            if tiene_mensajes_nuevos(chat):
-                estado = "TIENE MENSAJES NUEVOS"
-                chats_con_unread.append(nombre)
-            else:
-                estado = "SIN MENSAJES NUEVOS"
-
-            print(f"CHAT #{i}: {nombre} -> {estado}")
-
-        print("\nRESUMEN:")
-        print(f"Chats con mensajes nuevos: {len(chats_con_unread)}")
-
-        for nombre in chats_con_unread:
-            print(f"   • {nombre}")
-
-        sb.sleep(5)
+    t1.join()
+    t2.join()

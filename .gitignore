@@ -1,0 +1,10 @@
+sb-personas/
+profile/
+*.log
+*.sqlite
+Cookies
+Network/
+Default/
+Cache/
+__pycache__/
+.env
